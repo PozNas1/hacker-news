@@ -1,0 +1,26 @@
+.Story {
+    font-family: "Ubuntu Mono";
+    padding-bottom: 24px;
+}
+
+.StoryTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.StoryLink {
+    font-size: 10px;
+    padding-left: 12px;
+}
+
+.StoryDetails {
+    font-size: 10px;
+    font-family: "Open Sans";
+    * {
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.StarButton {
+    padding: 3px 3px;
+}
