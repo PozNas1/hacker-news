@@ -5,3 +5,8 @@ export type StarredNewsContextType = {
   deleteStory: (id: number) => void;
   switchFilter: (isStarred: boolean) => void;
 };
+
+export type ThemeContextType = {
+  isDarkMode: boolean;
+  switchMode: () => void;
+};

@@ -1,17 +1,16 @@
 import React, { FC } from "react";
+import Filter from "../Filter/Filter";
 import styles from "./Footer.module.scss";
 
-interface FooterProps {}
+interface FooterProps {
+  withFilters: boolean;
+}
 
-const Footer: FC<FooterProps> = () => {
+const Footer: FC<FooterProps> = ({ withFilters }) => {
   return (
     <div className={styles.Footer}>
       <p className={styles.FooterTitle}>Hacker News</p>
-      <div className={styles.Filter}>
-        <div>latest</div>
-        <div>|</div>
-        <div>starred</div>
-      </div>
+      {withFilters && <Filter></Filter>}
     </div>
   );
 };

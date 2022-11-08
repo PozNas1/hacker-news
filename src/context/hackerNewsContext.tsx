@@ -1,14 +1,21 @@
-import * as React from "react";
+import { useEffect, useState, createContext } from "react";
 import { StarredNewsContextType } from "../@types/hackerNews";
 
-export const StarredNewsContext =
-  React.createContext<StarredNewsContextType | null>(null);
+export const StarredNewsContext = createContext<StarredNewsContextType | null>(
+  null
+);
 
 const StarredNewsProvider: React.FC<{ children: any }> = ({ children }) => {
-  const [starredNews, setStarredNews] = React.useState<Set<number>>(
-    new Set<number>()
+  const [starredNews, setStarredNews] = useState<Set<number>>(
+    // new Set<number>()
+    new Set(
+      localStorage
+        .getItem("starredNews")
+        ?.split(",")
+        .map((id: string) => parseInt(id))
+    )
   );
-  const [filterIsStarred, setFilterIsStareed] = React.useState<boolean>(false);
+  const [filterIsStarred, setFilterIsStareed] = useState<boolean>(false);
 
   const switchFilter = (isStarred: boolean) => {
     setFilterIsStareed(isStarred);
@@ -27,6 +34,24 @@ const StarredNewsProvider: React.FC<{ children: any }> = ({ children }) => {
       return new Set(starredNews);
     });
   };
+
+  useEffect(() => {
+    if (starredNews.size) {
+      localStorage.setItem("starredNews", Array.from(starredNews).join(","));
+    }
+  }, [starredNews]);
+
+  //   useEffect(() => {
+  //     setStarredNews(
+  //       new Set(
+  //         localStorage
+  //           .getItem("starredNews")
+  //           ?.split(",")
+  //           .map((id: string) => parseInt(id))
+  //       )
+  //     );
+  //   }, []);
+
   return (
     <StarredNewsContext.Provider
       value={{

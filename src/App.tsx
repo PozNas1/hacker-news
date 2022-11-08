@@ -1,24 +1,19 @@
 import React from "react";
 import "./App.css";
-import { Layout } from "antd";
-import { Header, ListOfHackerNews, Footer } from "./components";
-import StarredNewsProvider from "./context/hackerNewsContext";
+import { Main, UserDetails } from "./components";
+import ThemeProvider from "./context/themeContext";
+import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 
 function App() {
   return (
-    <Layout
-      style={{
-        minHeight: "100vh",
-        borderTop: "4px solid #FE7139",
-        backgroundColor: "white",
-      }}
-    >
-      <StarredNewsProvider>
-        <Header></Header>
-        <ListOfHackerNews></ListOfHackerNews>
-        <Footer></Footer>
-      </StarredNewsProvider>
-    </Layout>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/user/:id" element={<UserDetails />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

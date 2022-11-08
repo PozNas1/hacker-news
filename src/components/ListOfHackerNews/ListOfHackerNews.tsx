@@ -9,6 +9,7 @@ import styles from "./HackerNews.module.scss";
 interface ListOfHackerNewsProps {}
 
 const ListOfHackerNews: FC<ListOfHackerNewsProps> = () => {
+  const StoriesPerPage = 12;
   const { filterIsStarred, starredNews } = React.useContext(
     StarredNewsContext
   ) as StarredNewsContextType;
@@ -27,10 +28,10 @@ const ListOfHackerNews: FC<ListOfHackerNewsProps> = () => {
     }
   }, [filterIsStarred, starredNews]);
 
-  const [visible, setVisible] = useState(12);
+  const [visible, setVisible] = useState(StoriesPerPage);
 
   const showMoreItems = () => {
-    setVisible((prevValue) => prevValue + 12);
+    setVisible((prevValue) => prevValue + StoriesPerPage);
   };
 
   return (
@@ -43,9 +44,11 @@ const ListOfHackerNews: FC<ListOfHackerNewsProps> = () => {
               <Story id={newsId}></Story>
             ))}
       </ol>
-      <button className={styles.ButtonShowMore} onClick={showMoreItems}>
-        show more
-      </button>
+      {news && news.length - visible > 0 && (
+        <button className={styles.ButtonShowMore} onClick={showMoreItems}>
+          show more
+        </button>
+      )}
     </div>
   );
 };

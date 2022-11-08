@@ -1,0 +1,14 @@
+.Filter {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-family: "Open Sans";
+    font-weight: 400;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.ActiveFilter {
+    font-weight: 700;
+    color: #fe7139;
+}

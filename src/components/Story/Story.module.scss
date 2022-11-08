@@ -1,26 +1,35 @@
 .Story {
     font-family: "Ubuntu Mono";
     padding-bottom: 24px;
+    color: gray;
 }
 
 .StoryTitle {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .StoryLink {
     font-size: 10px;
     padding-left: 12px;
+    font-family: "Open Sans";
 }
 
 .StoryDetails {
     font-size: 10px;
     font-family: "Open Sans";
-    * {
-        color: rgba(0, 0, 0, 0.5);
-    }
 }
 
 .StarButton {
-    padding: 3px 3px;
+    padding: 0px 0px;
+}
+
+.Star {
+    font-size: 10px;
+    color: gray;
+}
+
+.StarActive {
+    color: #fe7139;
+    font-size: 10px;
 }
