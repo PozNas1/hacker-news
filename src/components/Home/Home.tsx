@@ -26,7 +26,7 @@ const Home: FC<HomeProps> = () => {
           <ListOfHackerNews></ListOfHackerNews>
         </div>
 
-        <Footer withFilters={false}></Footer>
+        <Footer withFilters={true}></Footer>
       </StarredNewsProvider>
     </Layout>
   );
