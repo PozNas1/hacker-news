@@ -48,9 +48,12 @@ const Story: FC<StoryProps> = ({ id }) => {
             {story.title}
           </Text>
         </a>
-        <Text className={styles.StoryLink} style={{ color: "gray" }}>
-          ({story.url?.replace(/https?:\/\//, "").replace(/\/.*/, "")})
-        </Text>
+        {story.url?.replace(/https?:\/\//, "").replace(/\/.*/, "").length >
+          0 && (
+          <Text className={styles.StoryLink} style={{ color: "gray" }}>
+            ({story.url?.replace(/https?:\/\//, "").replace(/\/.*/, "")})
+          </Text>
+        )}
         <div className={styles.StoryDetails}>
           <Text style={{ color: "gray" }}>{story.score} points </Text>
           <Link to={`/user/${story.by}`}>

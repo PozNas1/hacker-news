@@ -8,6 +8,7 @@ import styles from "./Header.module.scss";
 import { ThemeContext } from "../../context/themeContext";
 import { ThemeContextType } from "../../@types/hackerNews";
 import Filter from "../Filter/Filter";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   withFilter: boolean;
@@ -22,11 +23,13 @@ const Header: FC<HeaderProps> = ({ withFilter }) => {
     <div className={styles.Header}>
       <div className={styles.HeaderLeftMenu}>
         <img src={HackerNewsLogo} alt="React Logo" />
-        <img
-          className={styles.HeaderTitle}
-          src={isDarkMode ? HackerNewsWhite : HackerNewsText}
-          alt="Hacker News Text"
-        />
+        <Link to="/">
+          <img
+            className={styles.HeaderTitle}
+            src={isDarkMode ? HackerNewsWhite : HackerNewsText}
+            alt="Hacker News Text"
+          />
+        </Link>
         {withFilter && <Filter></Filter>}
       </div>
       <div onClick={switchMode}>
