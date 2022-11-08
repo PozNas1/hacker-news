@@ -32,9 +32,9 @@ const Header: FC<HeaderProps> = ({ withFilter }) => {
         </Link>
         {withFilter && <Filter></Filter>}
       </div>
-      <div onClick={switchMode}>
+      <button onClick={switchMode} className={styles.ButtonSwitchMode}>
         <img src={isDarkMode ? Sun : Moon} alt="change mode" />
-      </div>
+      </button>
     </div>
   );
 };
