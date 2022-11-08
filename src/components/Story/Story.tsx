@@ -1,10 +1,8 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, useContext } from "react";
 import { getStoryById } from "../../api/FetchNews";
 import styles from "./Story.module.scss";
 import { Button, Typography } from "antd";
 import { timeSince } from "../../utils/utils";
-import Star from "../../assets/Star.svg";
-import StarActive from "../../assets/StarActive.svg";
 import { StarredNewsContext } from "../../context/hackerNewsContext";
 import {
   StarredNewsContextType,
@@ -21,7 +19,7 @@ interface StoryProps {
 
 const Story: FC<StoryProps> = ({ id }) => {
   const [story, setStory] = useState<any>();
-  const { isDarkMode } = React.useContext(ThemeContext) as ThemeContextType;
+  const { isDarkMode } = useContext(ThemeContext) as ThemeContextType;
 
   useEffect(() => {
     const getStory = async () => {
@@ -31,7 +29,7 @@ const Story: FC<StoryProps> = ({ id }) => {
     getStory();
   }, [id]);
 
-  const { starredNews, addStory, deleteStory } = React.useContext(
+  const { starredNews, addStory, deleteStory } = useContext(
     StarredNewsContext
   ) as StarredNewsContextType;
 

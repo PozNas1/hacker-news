@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import Filter from "../Filter/Filter";
 import styles from "./Footer.module.scss";
 

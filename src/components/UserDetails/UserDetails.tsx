@@ -35,7 +35,7 @@ const UserDetails: FC = () => {
     >
       <StarredNewsProvider>
         <div>
-          <Header withFilters={false}></Header>
+          <Header withFilter={false}></Header>
         </div>
 
         <Descriptions

@@ -7,7 +7,6 @@ export const StarredNewsContext = createContext<StarredNewsContextType | null>(
 
 const StarredNewsProvider: React.FC<{ children: any }> = ({ children }) => {
   const [starredNews, setStarredNews] = useState<Set<number>>(
-    // new Set<number>()
     new Set(
       localStorage
         .getItem("starredNews")
@@ -40,17 +39,6 @@ const StarredNewsProvider: React.FC<{ children: any }> = ({ children }) => {
       localStorage.setItem("starredNews", Array.from(starredNews).join(","));
     }
   }, [starredNews]);
-
-  //   useEffect(() => {
-  //     setStarredNews(
-  //       new Set(
-  //         localStorage
-  //           .getItem("starredNews")
-  //           ?.split(",")
-  //           .map((id: string) => parseInt(id))
-  //       )
-  //     );
-  //   }, []);
 
   return (
     <StarredNewsContext.Provider

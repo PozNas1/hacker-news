@@ -1,15 +1,14 @@
-import React, { FC } from "react";
-import styles from "./Main.module.scss";
+import { FC, useContext } from "react";
 import { Layout } from "antd";
-import { Header, ListOfHackerNews, Footer } from "../../components";
+import { Header, ListOfHackerNews, Footer } from "..";
 import StarredNewsProvider from "../../context/hackerNewsContext";
 import { ThemeContext } from "../../context/themeContext";
 import { ThemeContextType } from "../../@types/hackerNews";
 
-interface MainProps {}
+interface HomeProps {}
 
-const Main: FC<MainProps> = () => {
-  const { isDarkMode } = React.useContext(ThemeContext) as ThemeContextType;
+const Home: FC<HomeProps> = () => {
+  const { isDarkMode } = useContext(ThemeContext) as ThemeContextType;
 
   return (
     <Layout
@@ -23,7 +22,7 @@ const Main: FC<MainProps> = () => {
     >
       <StarredNewsProvider>
         <div>
-          <Header withFilters={true}></Header>
+          <Header withFilter={true}></Header>
           <ListOfHackerNews></ListOfHackerNews>
         </div>
 
@@ -33,4 +32,4 @@ const Main: FC<MainProps> = () => {
   );
 };
 
-export default Main;
+export default Home;

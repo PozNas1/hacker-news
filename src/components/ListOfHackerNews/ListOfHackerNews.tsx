@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useContext } from "react";
 import { fetchNews } from "../../api/FetchNews";
 import Story from "../Story/Story";
 import { StarredNewsContext } from "../../context/hackerNewsContext";
@@ -10,7 +10,7 @@ interface ListOfHackerNewsProps {}
 
 const ListOfHackerNews: FC<ListOfHackerNewsProps> = () => {
   const StoriesPerPage = 12;
-  const { filterIsStarred, starredNews } = React.useContext(
+  const { filterIsStarred, starredNews } = useContext(
     StarredNewsContext
   ) as StarredNewsContextType;
 

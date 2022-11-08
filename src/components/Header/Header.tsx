@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useContext } from "react";
 import HackerNewsLogo from "../../assets/logo.svg";
 import HackerNewsText from "../../assets/HackerNewsText.svg";
 import HackerNewsWhite from "../../assets/HackerNewsWhite.svg";
@@ -10,11 +10,11 @@ import { ThemeContextType } from "../../@types/hackerNews";
 import Filter from "../Filter/Filter";
 
 interface HeaderProps {
-  withFilters: boolean;
+  withFilter: boolean;
 }
 
-const Header: FC<HeaderProps> = ({ withFilters }) => {
-  const { isDarkMode, switchMode } = React.useContext(
+const Header: FC<HeaderProps> = ({ withFilter }) => {
+  const { isDarkMode, switchMode } = useContext(
     ThemeContext
   ) as ThemeContextType;
 
@@ -27,7 +27,7 @@ const Header: FC<HeaderProps> = ({ withFilters }) => {
           src={isDarkMode ? HackerNewsWhite : HackerNewsText}
           alt="Hacker News Text"
         />
-        {withFilters && <Filter></Filter>}
+        {withFilter && <Filter></Filter>}
       </div>
       <div onClick={switchMode}>
         <img src={isDarkMode ? Sun : Moon} alt="change mode" />
